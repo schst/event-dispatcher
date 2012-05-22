@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>net.schst</groupId>
+  <artifactId>EventDispatcher</artifactId>
+  <version>0.12.0</version>
+  <packaging>jar</packaging>
+
+  <repositories>
+    <repository>
+      <id>schst</id>
+      <url>http://mvn.java.schst.net/repository</url>
+    </repository>
+  </repositories>  
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+  
+	<build>
+    <defaultGoal>package</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+          <encoding>iso8859-1</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptor>src/main/assembly/bin.xml</descriptor>
+        </configuration>
+      </plugin>
+			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clover-plugin</artifactId>
+        <configuration>
+          <jdk>1.5</jdk>
+          <licenseFile>/home/schst/clover.license</licenseFile>
+        </configuration>
+      </plugin>      
+    </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ftp</artifactId>
+        <version>1.0-alpha-3</version>
+      </extension>
+    </extensions>
+  </build>
+  <distributionManagement>
+    <repository>
+      <id>schst</id>
+      <url>ftp://mvn.java.schst.net/repository</url>
+    </repository>
+    <snapshotRepository>
+      <id>schst</id>
+      <url>ftp://mvn.java.schst.net/repository</url>
+    </snapshotRepository>
+  </distributionManagement>    
+</project>
